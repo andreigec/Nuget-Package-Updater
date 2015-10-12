@@ -9,14 +9,10 @@ namespace NugetPackageUpdater
 {
     public static class FileHelpers
     {
-        public static bool SaveToFile(String filename, String text, bool append = false)
+        public static bool SaveToFile(String filename, String text)
         {
             try
             {
-                string exist = "";
-                if (append && File.Exists(filename))
-                    exist = LoadFile(filename);
-
                 var fs = new FileStream(filename, FileMode.Create);
                 var sw = new StreamWriter(fs);
                 sw.Write(text);
